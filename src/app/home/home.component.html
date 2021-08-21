@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>Home page</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div style="padding:5%;margin-top: 40%;">
+    <ion-item>
+      <ion-label>Type</ion-label>
+      <ion-select  placeholder="Select One">
+        <ion-select-option value="female">Major currencies</ion-select-option>
+        <ion-select-option value="male">US Dollar index</ion-select-option>
+        <ion-select-option value="female">Metals</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Number of dates</ion-label>
+      <ion-input [(ngModel)]="a" type="number"></ion-input>
+    </ion-item>
+    <ion-item *ngFor="let e of [].constructor(a); let i = index">
+      <ion-label>Date {{i+1}}</ion-label>
+      <ion-datetime name={{i+1}} [(ngModel)]="dt[i]"></ion-datetime>
+    </ion-item>
+    <ion-button (click)="submit()" style="margin-left:35%;margin-top:5%" color="success">Generate Excel</ion-button>
+  </div>
+</ion-content>

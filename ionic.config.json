@@ -1,0 +1,7 @@
+{
+  "name": "excelapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
