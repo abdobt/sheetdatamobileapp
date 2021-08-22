@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     'BRITISH POUND STERL ING - CHICAGO MERCANTILE EXCHANGE',
     'JAPANESE YEN - CHICAGO MERCANTILE EXCHANGE',
     'EURO FX - CHICAGO MERCANTILE EXCHANGE',
-    'NEW ZEALAND DOLLAR - CHICAGO MERCANT ILE EXCHANGE',
+    'NEW ZEALAND DOLLAR - CHICAGO MERCANTILE EXCHANGE',
     'AUSTRALIAN DOLLAR - CHICAGO MERCANTILE EXCHANGE',
     'SILVER - COMMODITY EXCHANGE INC',
     'GOLD - COMMODITY EX CHANGE INC'
@@ -155,6 +155,7 @@ this.presentAlert('No index is selected','Error','my-custom-class');
       this.presentAlert('All files has been downloaded','Congrats','danger');
     },
     err => {
+      this.service.fa=false;
       this.presentAlert('Check your internet connection and the validity of the dates you entered','Error','my-custom-class');
     });
   }

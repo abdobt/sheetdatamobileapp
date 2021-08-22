@@ -1,21 +1,16 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="light">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>My Navigation Bar</ion-title>
-  </ion-toolbar>
-
-  <ion-toolbar>
-    <ion-title>Subheader</ion-title>
+    <ion-title style="margin-left: 30%;" >Sheet Data</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <div style="padding:5%;margin-top: 20%;">
-    <ion-item lines="non" style="margin-bottom:8%;" *ngIf="this.service.fa">
+    <ion-item lines="non"  style="margin-bottom:8%; padding: 4%;" *ngIf="this.service.fa">
       <ion-progress-bar type="indeterminate"></ion-progress-bar>
     </ion-item>
-    <ion-label>{{this.service.fa}}</ion-label>
     <ion-item>
       <ion-label>Type</ion-label>
       <ion-select [(ngModel)]="index"  placeholder="Select a type">
@@ -32,6 +27,6 @@
       <ion-label>Date {{i+1}}</ion-label>
       <ion-input type="text" required="true" minlength=6 maxlength=6 name={{i+1}} [(ngModel)]="dt[i]"></ion-input>
     </ion-item>
-    <ion-button (click)="submit()" style="margin-left:35%;margin-top:5%" color="success">Generate Excel</ion-button>
+    <ion-button (click)="submit()" shape="round" style="margin-left:25%;margin-top:5%" color="success">Generate Excel</ion-button>
   </div>
 </ion-content>
