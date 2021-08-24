@@ -20,12 +20,7 @@
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>Number of dates</ion-label>
-      <ion-input [(ngModel)]="a" type="number"></ion-input>
-    </ion-item>
-    <ion-item *ngFor="let e of [].constructor(a); let i = index">
-      <ion-label>Date {{i+1}}</ion-label>
-      <ion-input type="text" required="true" minlength=6 maxlength=6 name={{i+1}} [(ngModel)]="dt[i]"></ion-input>
+      <ion-textarea [(ngModel)]="r" rows="3" placeholder="Paste dates here"></ion-textarea>
     </ion-item>
     <ion-button (click)="submit()" shape="round" style="margin-left:25%;margin-top:5%" color="success">Generate Excel</ion-button>
   </div>

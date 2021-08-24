@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   index=0;
   ldg=0;
   dt=[];
+  r;
   names=[
     'CANADIAN DOLLAR - CHICAGO MERCANTILE EXCHANGE',
     'SWISS FRANC - CHICAGO MERCANTILE EXCHANGE',
@@ -53,10 +54,10 @@ export class HomeComponent implements OnInit {
   checkelementslength()
   {
     let a=true;
-    for(const element of this.dt)
+    const lines = this.r.split('\n');
+    for(let e=0;e<lines.length;e++)
     {
-
-      if(String(element).length!=6)
+      if(String(this.dt[e]).length!=6)
       {
         a= false;
         break;
@@ -69,7 +70,7 @@ export class HomeComponent implements OnInit {
     {
       return false;
     }
-    else if(this.dt.length!=this.a)
+    else if(this.dt.length<this.a)
     {
       return false;
     }
@@ -81,12 +82,17 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 submit()
 {
+  const lines = this.r.split('\n');
+for(let i = 0;i < lines.length;i++){
+   this.dt[i]=lines[i];
+}
+console.log(this.dt);
   // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
   if(this.index==0)
   {
 this.presentAlert('No index is selected','Error','my-custom-class');
   }
-  else if(this.a==0){
+  else if(lines.length==0){
   this.presentAlert('You have to enter at least one date','Error','my-custom-class');
   }
   else if(!this.checkArray())
@@ -100,8 +106,6 @@ this.presentAlert('No index is selected','Error','my-custom-class');
   else{
     const a=this;
     const b=this.dt;
-    console.log(this.dt);
-    console.log(b);
     this.service.getdata(this.index,this.dt).subscribe(data => {
       let l=-1;
       if(this.index == 1)
@@ -156,6 +160,7 @@ this.presentAlert('No index is selected','Error','my-custom-class');
     },
     err => {
       this.service.fa=false;
+      console.log(err);
       this.presentAlert('Check your internet connection and the validity of the dates you entered','Error','my-custom-class');
     });
   }
